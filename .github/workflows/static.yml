@@ -29,9 +29,9 @@ jobs:
         id: deploy
         uses: pinkasey/cpanel-deploy-action@v1.0.0
         with:
-          hostname: 'http://server65.web-hosting.com'
-          repository_root: '/home/riteimuraka/public_html'
+          hostname: "http://server65.web-hosting.com"
+          repository_root: "/home/riteimuraka/public_html"
           branch: main
-          cpanel_token: '${{ secrets.CPANEL_TOKEN }}'
+          cpanel_token: "KGHE85VN2X72PDWJIK78H5W7MV2U6SDE"
       - name: echo deploy-duration
         run: echo "Deployment took ${{ steps.deploy.outputs.duration }} milliseconds"
