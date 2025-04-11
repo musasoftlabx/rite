@@ -33,5 +33,6 @@ jobs:
           repository_root: "/home/riteimuraka/public_html"
           branch: main
           cpanel_token: "KGHE85VN2X72PDWJIK78H5W7MV2U6SDE"
+          cpanel_username: "riteimuraka"
       - name: echo deploy-duration
         run: echo "Deployment took ${{ steps.deploy.outputs.duration }} milliseconds"
