@@ -22,17 +22,34 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  deploy:
+  web-deploy:
+    name: Deploy Website
     runs-on: ubuntu-latest
+
     steps:
-      - name: Deploy to cPanel
-        id: deploy
-        uses: pinkasey/cpanel-deploy-action@v1.0.0
+      # Checkout the repository
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # Sync files via FTP
+      - name: Sync Files via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
-          hostname: "http://server65.web-hosting.com:2083"
-          repository_root: "/home/riteimuraka/public_html"
-          branch: main
-          cpanel_token: "KGHE85VN2X72PDWJIK78H5W7MV2U6SDE"
-          cpanel_username: "riteimuraka"
-      - name: echo deploy-duration
-        run: echo "Deployment took ${{ steps.deploy.outputs.duration }} milliseconds"
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          exclude: .git,README.md
+  # deploy:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Deploy to cPanel
+  #       id: deploy
+  #       uses: pinkasey/cpanel-deploy-action@v1.0.0
+  #       with:
+  #         hostname: "http://server65.web-hosting.com:2083"
+  #         repository_root: "/home/riteimuraka/public_html"
+  #         branch: main
+  #         cpanel_token: "KGHE85VN2X72PDWJIK78H5W7MV2U6SDE"
+  #         cpanel_username: "riteimuraka"
+  #     - name: echo deploy-duration
+  #       run: echo "Deployment took ${{ steps.deploy.outputs.duration }} milliseconds"
