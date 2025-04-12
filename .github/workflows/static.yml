@@ -1,6 +1,11 @@
 # Simple workflow for deploying static content to GitHub Pages
 name: Deploy static content to Pages
 
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/your-username/public_html/
+    - /bin/cp -R . $DEPLOYPATH
+
 on:
   # Runs on pushes targeting the default branch
   push:
@@ -38,7 +43,7 @@ jobs:
           server: ftp.rite.co.ke
           username: rite@rite.co.ke
           password: "@rite2000."
-          local-dir: home/
+          server-dir: public_html/
           #server: ${{ secrets.FTP_SERVER }}
           #username: ${{ secrets.FTP_USERNAME }}
           #password: ${{ secrets.FTP_PASSWORD }}
