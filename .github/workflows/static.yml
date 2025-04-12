@@ -35,9 +35,10 @@ jobs:
       - name: Sync Files via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
-          server: "ftp.rite.co.ke"
-          username: "rite@rite.co.ke"
+          server: ftp.rite.co.ke
+          username: rite@rite.co.ke
           password: "@rite2000."
+          local-dir: /public_html
           #server: ${{ secrets.FTP_SERVER }}
           #username: ${{ secrets.FTP_USERNAME }}
           #password: ${{ secrets.FTP_PASSWORD }}
