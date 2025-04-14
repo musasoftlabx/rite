@@ -44,7 +44,9 @@ jobs:
           #password: ${{ secrets.FTP_PASSWORD }}
           exclude: .git,README.md
       - run: |
-          mv /home/runner/work/rite/rite/* /home/riteimuraka/public_html/
+          mv /home/runner/work/rite/rite /home/
+
+        #mv /home/runner/work/rite/rite/* /home/riteimuraka/public_html/
   # deploy:
   #   runs-on: ubuntu-latest
   #   steps:
