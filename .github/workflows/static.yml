@@ -44,8 +44,7 @@ jobs:
           #password: ${{ secrets.FTP_PASSWORD }}
           exclude: .git,README.md
       - run: |
-          cd /home/riteimuraka/
-          ls
+          ls /home/runner
         #mv /home/runner/work/rite/rite /home/riteimuraka/
 
         #mv /home/runner/work/rite/rite/* /home/riteimuraka/public_html/
