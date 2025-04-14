@@ -44,7 +44,7 @@ jobs:
           #password: ${{ secrets.FTP_PASSWORD }}
           exclude: .git,README.md
       - run: |
-          ls
+          pwd
 
       #mv /home/riteimuraka/rite.co.ke/rite/public_html /home/riteimuraka/public_html/
   # deploy:
