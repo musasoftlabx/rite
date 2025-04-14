@@ -38,7 +38,7 @@ jobs:
           server: ftp.rite.co.ke
           username: rite@rite.co.ke
           password: "@rite2000."
-          server-dir: ../../public_html/
+          #server-dir: ../../public_html/
           #server: ${{ secrets.FTP_SERVER }}
           #username: ${{ secrets.FTP_USERNAME }}
           #password: ${{ secrets.FTP_PASSWORD }}
