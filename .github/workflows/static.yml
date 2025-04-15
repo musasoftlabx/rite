@@ -33,12 +33,12 @@ jobs:
 
       # Sync files via FTP
       - name: Sync Files via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ftp.rite.co.ke
           username: rite@rite.co.ke
           password: "@rite2000."
-          #server-dir: /home/riteimuraka/public_html/
+          local-dir: /home/riteimuraka/public_html/
           #server: ${{ secrets.FTP_SERVER }}
           #username: ${{ secrets.FTP_USERNAME }}
           #password: ${{ secrets.FTP_PASSWORD }}
