@@ -15,51 +15,18 @@ permissions:
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
-
 jobs:
-  web-deploy:
-    name: Deploy Website
+  deploy:
     runs-on: ubuntu-latest
-
     steps:
-      # Checkout the repository
-      - name: Checkout Code
-        uses: actions/checkout@v4
-
-      # Sync files via FTP
-      - name: Sync Files via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: Deploy to cPanel
+        id: deploy
+        uses: pinkasey/cpanel-deploy-action@v1.0.0
         with:
-          server: ftp.rite.co.ke
-          username: rite@rite.co.ke
-          password: "@rite2000."
-          #server-dir: /home/riteimuraka/public_html/
-          #server: ${{ secrets.FTP_SERVER }}
-          #username: ${{ secrets.FTP_USERNAME }}
-          #password: ${{ secrets.FTP_PASSWORD }}
-          exclude: .git,README.md
-      - run: |
-          hostname -I
-          echo ' '
-        #mv /home/runner/work/rite/rite /home/riteimuraka/
-
-        #mv /home/runner/work/rite/rite/* /home/riteimuraka/public_html/
-  # deploy:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Deploy to cPanel
-  #       id: deploy
-  #       uses: pinkasey/cpanel-deploy-action@v1.0.0
-  #       with:
-  #         hostname: "http://server65.web-hosting.com:2083"
-  #         repository_root: "/home/riteimuraka/public_html"
-  #         branch: main
-  #         cpanel_token: "KGHE85VN2X72PDWJIK78H5W7MV2U6SDE"
-  #         cpanel_username: "riteimuraka"
-  #     - name: echo deploy-duration
-  #       run: echo "Deployment took ${{ steps.deploy.outputs.duration }} milliseconds"
+          hostname: "http://server65.web-hosting.com:2083"
+          repository_root: "/home/riteimuraka/public_html"
+          branch: main
+          cpanel_token: "KGHE85VN2X72PDWJIK78H5W7MV2U6SDE"
+          cpanel_username: "riteimuraka"
+      - name: echo deploy-duration
+        run: echo "Deployment took ${{ steps.deploy.outputs.duration }} milliseconds"
