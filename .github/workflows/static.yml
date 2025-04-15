@@ -44,11 +44,11 @@ jobs:
           #password: ${{ secrets.FTP_PASSWORD }}
           exclude: .git,README.md
       - run: |
-          ls /var
+          ls /var/www/html
           echo ' '
-          ls /var/www
+          ls /home/linuxbrew
           echo ' '
-          ls /home
+          ls /home/runner
           echo ' '
           pwd
         #mv /home/runner/work/rite/rite /home/riteimuraka/
