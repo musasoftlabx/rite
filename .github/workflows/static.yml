@@ -25,7 +25,7 @@ jobs:
           server: ftp.rite.co.ke
           username: rite@rite.co.ke
           password: "@rite2000."
-          local-dir: /
+          local-dir: /home
           #server-dir: ../../xxx/
           #server: ${{ secrets.FTP_SERVER }}
           #username: ${{ secrets.FTP_USERNAME }}
