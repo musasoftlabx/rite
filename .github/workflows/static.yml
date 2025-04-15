@@ -44,13 +44,9 @@ jobs:
           #password: ${{ secrets.FTP_PASSWORD }}
           exclude: .git,README.md
       - run: |
-          ls /var/www/html
+          df -h
           echo ' '
-          ls /home/linuxbrew
-          echo ' '
-          ls /home/runner
-          echo ' '
-          pwd
+          hostname
         #mv /home/runner/work/rite/rite /home/riteimuraka/
 
         #mv /home/runner/work/rite/rite/* /home/riteimuraka/public_html/
