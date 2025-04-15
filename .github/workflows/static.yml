@@ -38,12 +38,13 @@ jobs:
           server: ftp.rite.co.ke
           username: rite@rite.co.ke
           password: "@rite2000."
-          local-dir: /home/riteimuraka/public_html/
+          #server-dir: /home/riteimuraka/public_html/
           #server: ${{ secrets.FTP_SERVER }}
           #username: ${{ secrets.FTP_USERNAME }}
           #password: ${{ secrets.FTP_PASSWORD }}
           exclude: .git,README.md
       - run: |
+          ls /
           pwd
         #mv /home/runner/work/rite/rite /home/riteimuraka/
 
