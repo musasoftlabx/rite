@@ -22,10 +22,9 @@ jobs:
       - name: 📂 Sync files via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ftp.rite.co.ke
+          server: ftp.rite.co.ke/public_html
           username: rite@rite.co.ke
           password: "@rite2000."
-          local-dir: /home/
           #server-dir: ../../xxx/
           #server: ${{ secrets.FTP_SERVER }}
           #username: ${{ secrets.FTP_USERNAME }}
