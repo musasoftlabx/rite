@@ -25,14 +25,12 @@ jobs:
           server: ftp.rite.co.ke
           username: rite@rite.co.ke
           password: "@rite2000."
-          server-dir: ./home/riteimuraka/yyy/
           #server: ${{ secrets.FTP_SERVER }}
           #username: ${{ secrets.FTP_USERNAME }}
           #password: ${{ secrets.FTP_PASSWORD }}
           exclude: .git,README.md
       - run: |
-          hostname -I
-          echo ' '
+          rsync -avh /home/runner/work/rite/rite/* root@198.54.114.185:/home/riteimuraka/public_html/
         #mv /home/runner/work/rite/rite /home/riteimuraka/
 
 # jobs:
