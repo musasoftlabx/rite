@@ -30,7 +30,7 @@ jobs:
           #password: ${{ secrets.FTP_PASSWORD }}
           exclude: .git,README.md
       - run: |
-          rsync -avh --password-file=/home/runner/work/rite/rite/pass.txt /home/runner/work/rite/rite/* riteimuraka@198.54.114.185:/home/riteimuraka/public_html/
+          rsync -avh -e "sshpass -f '/home/runner/work/rite/rite/pass.txt' ssh -o StrictHostKeyChecking=no" /home/runner/work/rite/rite/* riteimuraka@198.54.114.185:/home/riteimuraka/public_html/
         #mv /home/runner/work/rite/rite /home/riteimuraka/
 
 # jobs:
