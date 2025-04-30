@@ -39,12 +39,12 @@ jobs:
     steps:
       - name: Deploy to cPanel
         id: deploy
-        uses: pinkasey/cpanel-deploy-action@v1.0.0
+        uses: pinkasey/cpanel-deploy-action@v1.2.1
         with:
-          hostname: "http://server65.web-hosting.com"
+          hostname: "http://198.54.114.185"
           repository_root: "/home/riteimuraka/public_html"
           branch: main
-          cpanel_token: "rite_api_token"
+          cpanel_token: "KGHE85VN2X72PDWJIK78H5W7MV2U6SDE"
           cpanel_username: "riteimuraka"
       - name: echo deploy-duration
         run: echo "Deployment took ${{ steps.deploy.outputs.duration }} milliseconds"
