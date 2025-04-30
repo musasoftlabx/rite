@@ -52,10 +52,10 @@
               "Email: $email" . "\r\n" .
               "Subject: $subject" . "\r\n" . "Message: $message";
 
-  if(mail("musasoftlabx@gmail.com", "Registration Form", 'You have been registered', $headers)){
+  if(mail("musa@rite.co.ke", "Registration Form", 'You have been registered', $headers)){
     echo "Registration successfully done!";
   }
   else{
-      echo $headers;
+      echo "Registration failed!";
   }
 ?>
