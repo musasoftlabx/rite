@@ -41,7 +41,7 @@ jobs:
         id: deploy
         uses: pinkasey/cpanel-deploy-action@v1.0.0
         with:
-          hostname: "http://198.54.114.185"
+          hostname: "http://server65.web-hosting.com"
           repository_root: "/home/riteimuraka/public_html"
           branch: main
           cpanel_token: "rite_api_token"
