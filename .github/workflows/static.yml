@@ -39,7 +39,7 @@ jobs:
     steps:
       - name: Deploy to cPanel
         id: deploy
-        uses: pinkasey/cpanel-deploy-action@v1.2.1
+        uses: musasoftlabx/cpanel-deploy-action
         with:
           hostname: "https://rite.co.ke"
           repository_root: "/home/riteimuraka/public_html"
