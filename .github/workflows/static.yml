@@ -41,7 +41,7 @@ jobs:
         id: deploy
         uses: pinkasey/cpanel-deploy-action@v1.2.1
         with:
-          hostname: "https://rite.co.ke/cpanel"
+          hostname: "https://rite.co.ke"
           repository_root: "/home/riteimuraka/public_html"
           branch: main
           cpanel_token: "KGHE85VN2X72PDWJIK78H5W7MV2U6SDE"
