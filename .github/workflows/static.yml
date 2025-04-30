@@ -37,7 +37,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy to cPanel-
+      - name: Deploy to cPanel
         id: deploy
         uses: musasoftlabx/cpanel-deploy-action@v3
         with:
