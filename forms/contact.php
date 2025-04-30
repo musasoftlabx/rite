@@ -56,6 +56,6 @@
     echo "Registration successfully done!";
   }
   else{
-      echo "Registration failed!";
+      echo $headers;
   }
 ?>
