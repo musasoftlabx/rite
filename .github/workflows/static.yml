@@ -9,42 +9,42 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-jobs:
-  web-deploy:
-    name: 🎉 Running Deployment Process
-    runs-on: ubuntu-latest
-    steps:
-      # Checkout the repository
-      - name: 🚚 Get latest code
-        uses: actions/checkout@v4
-
-      # Sync files via FTP
-      - name: 📂 Sync files via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ftp.rite.co.ke
-          username: rite@rite.co.ke
-          password: "@rite2000."
-          #server: ${{ secrets.FTP_SERVER }}
-          #username: ${{ secrets.FTP_USERNAME }}
-          #password: ${{ secrets.FTP_PASSWORD }}
-          exclude: .git,README.md
-      - run: |
-          rsync -avh -e "sshpass -f '/home/runner/work/rite/rite/pass.txt' ssh -o StrictHostKeyChecking=no" /home/runner/work/rite/rite/* riteimuraka@198.54.114.185:/home/riteimuraka/public_html/
-        #mv /home/runner/work/rite/rite /home/riteimuraka/
-
 # jobs:
-#   deploy:
+#   web-deploy:
+#     name: 🎉 Running Deployment Process
 #     runs-on: ubuntu-latest
 #     steps:
-#       - name: Deploy to cPanel
-#         id: deploy
-#         uses: pinkasey/cpanel-deploy-action@v1.0.0
+#       # Checkout the repository
+#       - name: 🚚 Get latest code
+#         uses: actions/checkout@v4
+
+#       # Sync files via FTP
+#       - name: 📂 Sync files via FTP
+#         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
 #         with:
-#           hostname: "http://198.54.114.185"
-#           repository_root: "/home/riteimuraka/public_html"
-#           branch: main
-#           cpanel_token: "KGHE85VN2X72PDWJIK78H5W7MV2U6SDE"
-#           cpanel_username: "riteimuraka"
-#       - name: echo deploy-duration
-#         run: echo "Deployment took ${{ steps.deploy.outputs.duration }} milliseconds"
+#           server: ftp.rite.co.ke
+#           username: rite@rite.co.ke
+#           password: "@rite2000."
+#           #server: ${{ secrets.FTP_SERVER }}
+#           #username: ${{ secrets.FTP_USERNAME }}
+#           #password: ${{ secrets.FTP_PASSWORD }}
+#           exclude: .git,README.md
+#       - run: |
+#           rsync -avh -e "sshpass -f '/home/runner/work/rite/rite/pass.txt' ssh -o StrictHostKeyChecking=no" /home/runner/work/rite/rite/* riteimuraka@198.54.114.185:/home/riteimuraka/public_html/
+#mv /home/runner/work/rite/rite /home/riteimuraka/
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to cPanel
+        id: deploy
+        uses: pinkasey/cpanel-deploy-action@v1.0.0
+        with:
+          hostname: "http://198.54.114.185"
+          repository_root: "/home/riteimuraka/public_html"
+          branch: main
+          cpanel_token: "KGHE85VN2X72PDWJIK78H5W7MV2U6SDE"
+          cpanel_username: "riteimuraka"
+      - name: echo deploy-duration
+        run: echo "Deployment took ${{ steps.deploy.outputs.duration }} milliseconds"
